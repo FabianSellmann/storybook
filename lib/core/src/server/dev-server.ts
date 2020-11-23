@@ -239,9 +239,7 @@ const startManager = async ({
   }
 
   if (!managerConfig) {
-    // FIXME: This object containing default values should match ManagerResult
-    // @ts-ignore
-    return { managerStats: {}, managerTotalTime: 0 } as ManagerResult;
+    return { managerTotalTime: [0, 0] };
   }
 
   const compiler = webpack(managerConfig);
@@ -279,9 +277,7 @@ const startPreview = async ({
   outputDir,
 }: any): Promise<PreviewResult> => {
   if (options.ignorePreview) {
-    // FIXME: This object containing default values should match PreviewResult
-    // @ts-ignore
-    return { previewStats: {}, previewTotalTime: 0 } as PreviewResult;
+    return { previewTotalTime: [0, 0] };
   }
 
   const previewConfig = await loadConfig({
